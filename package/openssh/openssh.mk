@@ -36,7 +36,7 @@ define openssh/build =
 	env PATH='$(host_path)' autoreconf -i
 	./configure LDFLAGS="-static $(LDFLAGS)" LIBS="-lpthread" \
 		--prefix="$(prefix)" --host="$(host_triplet)" --disable-strip \
-		--with-privsep-user=root --with-privsep-path=$(prefix)/var/empty
+		--with-privsep-user=root --with-privsep-path=$(prefix)/var/empty PATH_PASSWD_PROG=$(prefix)/bin/passwd
 	'$(MAKE)'
 endef
 
